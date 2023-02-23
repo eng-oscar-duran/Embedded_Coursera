@@ -36,5 +36,6 @@
  * @return <Add Return Informaiton here>
  */
 
-
+int print_array(unsigned char *array, unsigned int array_size);
+unsigned char find_mean(unsigned char *array, unsigned int array_size);
 #endif /* __STATS_H__ */

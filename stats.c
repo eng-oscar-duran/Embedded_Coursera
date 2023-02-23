@@ -1,15 +1,14 @@
 /******************************************************************************
- * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ * Copyright (C) 2023 by Oscar Duran 
  *
  * Redistribution, modification or use of this software in source or binary
  * forms is permitted as long as the files maintain this copyright. Users are 
  * permitted to modify this and use it to learn about the field of embedded
- * software. Alex Fosdick and the University of Colorado are not liable for any
- * misuse of this material. 
+ * software. Oscar Duran is not liable for an misuse of this material.
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
+ * @file stats.c
  * @brief <Add Brief Description Here >
  *
  * <Add Extended Description Here>
@@ -37,7 +36,39 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  print_array(test,SIZE);
+  printf("mean: %d\n",find_mean(test,SIZE));
 
 }
 
 /* Add other Implementation File Code Here */
+int print_array(unsigned char *array, unsigned int array_size)
+{
+  unsigned int i=0;
+  if(array_size > 0)
+  {
+    for(i=0;i<array_size;i++)
+    {
+      printf("%d\n",*(array+i));
+     // (i == array_size-1)?printf("\n"):printf(", ");
+    }
+    return 0;
+  }else{
+    return -1;
+  }
+}
+unsigned char find_mean(unsigned char *array, unsigned int array_size)
+{
+  unsigned int mean = 0;
+  unsigned int i = 0;
+  if(array_size<=0)
+  {
+    return 0;
+  }
+  for(i=0;i<array_size;i++)
+  {
+    mean += (unsigned int)(*(array+i));
+  }
+  mean = mean/array_size;
+  return (unsigned char)mean;
+}
